@@ -12,3 +12,18 @@ const returnRandBase = () => {
     }
     return newStrand
   }
+
+  const pAequorFactory = (specimanNum, dna) => {
+    return {
+      specimanNum,
+      dna,
+      mutate() {
+        const randIndex = Math.floor(Math.random() * this.dna.length);
+        let newBase = returnRandBase();
+        while (this.dna[randIndex] === newBase) {
+          newBase = returnRandBase();
+        }
+        this.dna[randIndex] = newBase;
+        return this.dna
+    }
+  },
