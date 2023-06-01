@@ -38,4 +38,12 @@ const returnRandBase = () => {
         const percentageTo2Dec = percentOfDNAShared.toFixed(2);
         console.log(`${this.specimanNum} and ${otherOrg.specimanNum} have ${percentageTo2Dec}% of DNA in common!`);
     },
-  },
+    willLikelySurvive() {
+        const cOrG = this.dna.filter(el => el === "C" || el === "G");
+        return cOrG.length / this.dna.length >= 0.6;
+    },
+  }
+};
+
+const survivingSpecimen = [];
+let idCounter = 1;
