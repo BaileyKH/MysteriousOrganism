@@ -25,5 +25,17 @@ const returnRandBase = () => {
         }
         this.dna[randIndex] = newBase;
         return this.dna
-    }
+    },
+    compareDNA(otherOrg) {
+        const similarities = this.dna.reduce((acc, curr, idx, arr) => {
+            if (arr[inx] === otherOrg.dna[idx]) {
+                return acc + 1;
+            } else {
+                return acc;
+            }
+        }, 0);
+        const percentOfDNAShared = (similarities / this.dna.length) * 100;
+        const percentageTo2Dec = percentOfDNAShared.toFixed(2);
+        console.log(`${this.specimanNum} and ${otherOrg.specimanNum} have ${percentageTo2Dec}% of DNA in common!`);
+    },
   },
